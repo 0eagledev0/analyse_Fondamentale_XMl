@@ -1,5 +1,6 @@
 ﻿from datetime import datetime, timedelta
-
+from operator import truediv
+import telegram as Telegram
 
 class File_transact:
 
@@ -28,7 +29,7 @@ class File_transact:
 
     def is_recent(self):
         # Calculer la date d'hier
-        yesterday = datetime.now() - timedelta(days=2)
+        yesterday = datetime.now() - timedelta(days=1)
         # Comparer la date de publication avec la date d'hier
         return self.publication_date >= yesterday
 
@@ -45,19 +46,20 @@ class Membre:
         self.last_Name = in_Last
         self.first_Name = in_First
         self.suffix = in_Suffix
-        self.file = []
+        self.files = []
 
     def addFile(self, in_file):
-        self.file.append(in_file)
+        self.files.append(in_file)
         if (in_file.is_recent()):
-            print("----------------")
-            print(self)
-            print("Publication Date:", in_file.state_District, in_file.publication_date)
-            print("ID du document Rapport: ", in_file.Doc_ID)
-            print("----------------")
+            message_telegram ="---------------- \n"
+            message_telegram += str(self)+"\n"
+            message_telegram +="Publication Date:"+str(in_file.state_District)+" - "+str(in_file.publication_date)+"\n"
+            message_telegram += "ID du document Rapport: "+ str(in_file.Doc_ID)+"\n"
+            Telegram.sendMessage(message_telegram,in_file.Doc_ID)
+
 
     def __repr__(self):
-        return f"Membre(last_Name='{self.last_Name}', first_Name={self.first_Name})\nnombre de fichier : {len(self.file)}"
+        return f"Membre(last_Name='{self.last_Name}', first_Name={self.first_Name})\nnombre de fichier total : {len(self.files)}"
 
     def __eq__(self, autre):
         return (self.last_Name == autre.last_Name) and (self.first_Name == autre.first_Name)
