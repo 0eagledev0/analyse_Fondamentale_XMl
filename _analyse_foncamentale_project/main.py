@@ -25,7 +25,7 @@ def run():
     os.remove("data\\2024FD.xml")
 
 
-schedule.every(1).hour.do(run)
+
 while True:
-    schedule.run_pending()
-    time.sleep(1)
+    run()
+    time.sleep(10)
