@@ -55,8 +55,8 @@ pip install requests pyTelegramBotAPI schedule
 
 1. Clone this repository to your working environment:
    ```bash
-   git clone <repository_link>
-   cd <project_name>
+   git clone https://github.com/0eagledev0/analyse_Fondamentale_XMl.git
+   cd analyse_Fondamentale_XMl
    ```
 
 2. Run the main script:
