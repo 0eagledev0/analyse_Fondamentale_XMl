@@ -1,95 +1,94 @@
-# Financial Disclosures Automation Tool
+﻿# Financial Disclosures Automation Tool
 
-Ce projet est un outil automatisé conçu pour télécharger, extraire et analyser des fichiers de divulgation financière depuis une source publique, puis notifier les informations importantes via Telegram.
+This project is an automated tool designed to download, extract, and analyze financial disclosure files from a public source, and notify important updates via Telegram.
 
-## Fonctionnalités
+## Features
 
-1. **Téléchargement Automatique :**  
-   Télécharge un fichier ZIP contenant des divulgations financières depuis une URL prédéfinie.
+1. **Automatic Download:**  
+   Downloads a ZIP file containing financial disclosures from a predefined URL.
 
-2. **Extraction et Analyse :**  
-   Décompresse le fichier ZIP, traite son contenu en analysant les fichiers XML, et associe les informations pertinentes à des membres.
+2. **Extraction and Analysis:**  
+   Unzips the downloaded file, processes its content by analyzing XML files, and associates relevant information with members.
 
-3. **Notification via Telegram :**  
-   Envoie un message Telegram pour notifier les mises à jour récentes, en évitant les doublons grâce à un fichier de suivi (`output.txt`).
+3. **Telegram Notifications:**  
+   Sends a Telegram message to notify recent updates, avoiding duplicates using a tracking file (`output.txt`).
 
-4. **Nettoyage Automatique :**  
-   Supprime les fichiers téléchargés et extraits après chaque cycle pour optimiser l'espace disque.
+4. **Automatic Cleanup:**  
+   Deletes downloaded and extracted files after each cycle to optimize disk space.
 
-5. **Cycle Automatisé :**  
-   Exécute le processus toutes les 10 secondes pour garantir que les données restent à jour.
+5. **Automated Cycle:**  
+   Executes the process every 10 seconds to ensure data is always up to date.
 
 ---
 
-## Prérequis
+## Prerequisites
 
 ### 1. Python
-Assurez-vous que Python 3.7+ est installé sur votre machine.
+Make sure Python 3.7+ is installed on your machine.
 
-### 2. Bibliothèques Python nécessaires
-Installez les dépendances avec la commande suivante :
+### 2. Required Python Libraries
+Install the dependencies using the following command:
 ```bash
 pip install requests pyTelegramBotAPI schedule
 ```
 
 ---
 
-## Structure du projet
+## Project Structure
 
 ```plaintext
 .
 ├── data/
-│   ├── output.txt           # Fichier pour suivre les notifications déjà envoyées
-│   ├── 2024FD.xml           # Fichier XML extrait (temporaire, supprimé après exécution)
-│   ├── 2024.zip             # Fichier ZIP téléchargé (temporaire, supprimé après exécution)
-├── main.py                  # Fichier principal exécutant le cycle
-├── Representative_Member.py # Gestion des membres et fichiers associés
-├── read.py                  # Lecture du fichier xml 
-├── telegram.py              # notification via l'application Telegram
-├── README.md                # Documentation du projet
+│   ├── output.txt           # File to track already sent notifications
+│   ├── 2024FD.xml           # Extracted XML file (temporary, deleted after execution)
+│   ├── 2024.zip             # Downloaded ZIP file (temporary, deleted after execution)
+├── main.py                  # Main script managing the automation cycle
+├── Representative_Member.py # Handles members and associated files
+├── read.py                  # Reads and processes the XML file
+├── telegram.py              # Manages Telegram notifications
+├── README.md                # Project documentation
 ```
 
 ---
-[Readme.md](Readme.md)
-## Comment exécuter le projet ?
 
-1. Clonez ce dépôt dans votre environnement de travail :
+## How to Run the Project?
+
+1. Clone this repository to your working environment:
    ```bash
-   git clone <lien_du_depot>
-   cd <nom_du_projet>
+   git clone <repository_link>
+   cd <project_name>
    ```
 
-2. Lancez le script principal :
+2. Run the main script:
    ```bash
    python main.py
    ```
 
-Le script s'exécutera en boucle, téléchargeant, traitant et nettoyant les fichiers automatiquement.
+The script will run in a loop, automatically downloading, processing, and cleaning up files.
 
 ---
 
-## Points importants
+## Key Points
 
-- **Configuration Telegram** :  
-  Dans le fichier `Representative_Member.py`, remplacez l'`API_TOKEN` et le `CHAT_ID` par vos informations Telegram. Assurez-vous que votre bot est configuré et a accès au chat spécifié.
+- **Telegram Configuration:**  
+  In the `Representative_Member.py` file, replace the `API_TOKEN` and `CHAT_ID` with your Telegram bot information. Ensure your bot is properly set up and has access to the specified chat.
 
-- **Sécurité** :  
-  N'incluez pas d'informations sensibles comme l'`API_TOKEN` directement dans le code. Utilisez des variables d'environnement pour les gérer.
+- **Security:**  
+  Do not include sensitive information, such as the `API_TOKEN`, directly in the code. Use environment variables to handle sensitive data securely.
 
-- **Fichier `output.txt`** :  
-  Ce fichier est utilisé pour suivre les numéros de fichiers déjà notifiés, afin d'éviter les doublons.
-
----
-
-## Améliorations possibles
-
-- Ajouter un fichier de configuration pour personnaliser l'URL, les intervalles de temps et d'autres paramètres.
-- Gérer les erreurs réseau ou de téléchargement avec des mécanismes de reprise.
-- Mettre en place une journalisation pour suivre les exécutions et les erreurs.
+- **`output.txt` File:**  
+  This file is used to track file IDs that have already been notified, ensuring no duplicate messages are sent.
 
 ---
 
-## Avertissement
+## Possible Improvements
 
-Ce projet est un outil pédagogique ou professionnel. Assurez-vous d'avoir les autorisations nécessaires pour interagir avec les données téléchargées et envoyées via Telegram.
- 
+- Add a configuration file to customize the URL, time intervals, and other parameters.
+- Handle network or download errors with retry mechanisms.
+- Implement logging to track executions and errors.
+
+---
+
+## Disclaimer
+
+This project is for educational or professional purposes. Ensure you have the necessary permissions to interact with the data being downloaded and sent via Telegram.
