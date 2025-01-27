@@ -89,6 +89,12 @@ The script will run in a loop, automatically downloading, processing, and cleani
 
 ---
 
+## License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
+---
+
 ## Disclaimer
 
 This project is for educational or professional purposes. Ensure you have the necessary permissions to interact with the data being downloaded and sent via Telegram.

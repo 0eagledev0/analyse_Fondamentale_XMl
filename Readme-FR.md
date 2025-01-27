@@ -89,6 +89,12 @@ Le script s'exécutera en boucle, téléchargeant, traitant et nettoyant les fic
 
 ---
 
+## License
+
+Ce projet est sous licence MIT. Consultez le fichier LICENSE pour plus de détails.
+
+---
+
 ## Avertissement
 
 Ce projet est un outil pédagogique ou professionnel. Assurez-vous d'avoir les autorisations nécessaires pour interagir avec les données téléchargées et envoyées via Telegram.
