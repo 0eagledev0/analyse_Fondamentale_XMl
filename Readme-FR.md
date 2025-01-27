@@ -91,7 +91,7 @@ Le script s'exécutera en boucle, téléchargeant, traitant et nettoyant les fic
 
 ## License
 
-Ce projet est sous licence MIT. Consultez le fichier LICENSE pour plus de détails.
+Ce projet est sous licence MIT. Consultez le fichier [LICENSE](LICENSE.txt) pour plus de détails.
 
 ---
 
